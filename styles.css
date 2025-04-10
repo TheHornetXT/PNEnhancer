@@ -1,0 +1,327 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #3a86ff;
+    --secondary: #8338ec;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --success: #38b000;
+    --warning: #ffbe0b;
+    --danger: #ff006e;
+    --foreshadowing: #ff6666;
+    --protagonist-flaws: #ffaa66;
+    --tension: #ffaadd;
+    --lead: #ffff99;
+    --ending: #99ff99;
+    --figurative: #99ccff;
+    --sensory: #9966cc;
+    --dialogue: #0066cc;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.input-section, .results-section {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+textarea {
+    width: 100%;
+    min-height: 250px;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    resize: vertical;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.grade-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+select {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.enhancement-options {
+    grid-column: span 2;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Label Colors */
+.foreshadowing { color: var(--foreshadowing); }
+.protagonist { color: var(--protagonist-flaws); }
+.tension { color: var(--tension); }
+.lead { color: var(--lead); }
+.ending { color: var(--ending); }
+.figurative { color: var(--figurative); }
+.sensory { color: var(--sensory); }
+.dialogue { color: var(--dialogue); }
+
+/* Highlight Colors */
+.highlight-foreshadowing { background-color: var(--foreshadowing); }
+.highlight-protagonist { background-color: var(--protagonist-flaws); }
+.highlight-tension { background-color: var(--tension); }
+.highlight-lead { background-color: var(--lead); }
+.highlight-ending { background-color: var(--ending); }
+.highlight-figurative { background-color: var(--figurative); }
+.highlight-sensory { background-color: var(--sensory); }
+.highlight-dialogue { background-color: var(--dialogue); }
+
+.action-buttons {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#checkAIBtn {
+    background-color: var(--warning);
+}
+
+#humanizeBtn {
+    background-color: var(--success);
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+    background-color: #f1f1f1;
+    color: var(--dark);
+    border-radius: 5px 5px 0 0;
+}
+
+.tab-btn.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.content-area {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 1.5rem;
+    min-height: 200px;
+    white-space: pre-wrap;
+    line-height: 1.8;
+}
+
+/* Score Display */
+.score-card {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.score-item {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+/* AI Detection Display */
+.ai-score-display {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.gauge {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto 2rem;
+}
+
+.gauge-body {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+    background: #eee;
+    border-top-left-radius: 100% 200%;
+    border-top-right-radius: 100% 200%;
+    overflow: hidden;
+}
+
+.gauge-fill {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: inherit;
+    height: 100%;
+    background: linear-gradient(to right, var(--success), var(--warning), var(--danger));
+    transform-origin: center bottom;
+    transform: rotate(0.5turn);
+    transition: transform 0.5s ease;
+}
+
+.gauge-cover {
+    width: 75%;
+    height: 150%;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gauge-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: white;
+    display: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .controls {
+        grid-template-columns: 1fr;
+    }
+    
+    .grade-selector, .enhancement-options, .action-buttons {
+        grid-column: 1;
+    }
+}

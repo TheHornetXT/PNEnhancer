@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Narrative Enhancer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Narrative Enhancer</h1>
+        
+        <div class="input-section">
+            <h2>Input Your Essay</h2>
+            <textarea id="essayInput" placeholder="Paste your personal narrative here..."></textarea>
+            
+            <div class="controls">
+                <div class="grade-selector">
+                    <label for="gradeLevel">Grade Level:</label>
+                    <select id="gradeLevel">
+                        <option value="elementary">Elementary (3-5)</option>
+                        <option value="middle" selected>Middle School (6-8)</option>
+                        <option value="high">High School (9-12)</option>
+                        <option value="college">College</option>
+                    </select>
+                </div>
+                
+                <div class="enhancement-options">
+                    <h3>Enhancement Options:</h3>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="foreshadowing" checked>
+                            <label for="foreshadowing" class="foreshadowing">Foreshadowing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="protagonist">
+                            <label for="protagonist" class="protagonist">Protagonist's Flaws</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="tension">
+                            <label for="tension" class="tension">Language Style to Build Tension</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lead" checked>
+                            <label for="lead" class="lead">Lead</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="ending" checked>
+                            <label for="ending" class="ending">Ending</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="figurative">
+                            <label for="figurative" class="figurative">Figurative Language</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="sensory">
+                            <label for="sensory" class="sensory">Sensory Details: Show Not Tell</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dialogue">
+                            <label for="dialogue" class="dialogue">Dialogue</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="analyzeBtn">Analyze Essay</button>
+                    <button id="enhanceBtn">Enhance Essay</button>
+                    <button id="checkAIBtn">Check AI Detection</button>
+                    <button id="humanizeBtn" disabled>Humanize Text</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="results-section">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="enhanced">Enhanced Essay</button>
+                <button class="tab-btn" data-tab="grammar">Grammar & Style</button>
+                <button class="tab-btn" data-tab="ai-score">AI Detection</button>
+            </div>
+            
+            <div id="enhanced" class="tab-content active">
+                <h2>Enhanced Essay</h2>
+                <div id="enhancedContent" class="content-area"></div>
+            </div>
+            
+            <div id="grammar" class="tab-content">
+                <h2>Grammar & Style Suggestions</h2>
+                <div class="score-card">
+                    <div class="score-item">
+                        <span>Readability:</span>
+                        <div class="progress-bar">
+                            <div id="readabilityProgress" class="progress" style="width: 0%"></div>
+                        </div>
+                        <span id="readabilityScore">0%</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Grammar:</span>
+                        <div class="progress-bar">
+                            <div id="grammarProgress" class="progress" style="width: 0%"></div>
+                        </div>
+                        <span id="grammarScore">0%</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Style:</span>
+                        <div class="progress-bar">
+                            <div id="styleProgress" class="progress" style="width: 0%"></div>
+                        </div>
+                        <span id="styleScore">0%</span>
+                    </div>
+                </div>
+                <div id="grammarContent" class="content-area"></div>
+            </div>
+            
+            <div id="ai-score" class="tab-content">
+                <h2>AI Detection Results</h2>
+                <div class="ai-score-display">
+                    <div class="gauge">
+                        <div class="gauge-body">
+                            <div id="aiGaugeValue" class="gauge-fill"></div>
+                            <div class="gauge-cover"></div>
+                        </div>
+                        <div id="aiScoreValue" class="gauge-value">0%</div>
+                    </div>
+                    <p id="aiDetectionMessage">Your essay has not been analyzed for AI content yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p id="loadingMessage">Analyzing your essay...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
